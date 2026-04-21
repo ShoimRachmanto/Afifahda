@@ -2,64 +2,64 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Motivasiku</title>
+<title>Mofifahsi Harian</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: #0f172a;
-        color: #ffffff;
-        overflow: hidden;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0f172a;
+    color: #ffffff;
+    overflow: hidden;
+}
 
-    .slide {
-        display: none;
-        height: 100vh;
-        width: 100vw;
-        padding: 60px;
-        box-sizing: border-box;
-        text-align: center;
+.slide {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    padding: 60px;
+    box-sizing: border-box;
+    text-align: center;
+}
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    .slide.active {
-        display: flex;
-    }
+h1 {
+    font-size: 3em;
+    max-width: 900px;
+    line-height: 1.4;
+}
 
-    h1 {
-        font-size: 3em;
-        max-width: 900px;
-        line-height: 1.4;
-    }
+p {
+    font-size: 1.4em;
+    opacity: 0.8;
+    margin-top: 20px;
+}
 
-    p {
-        font-size: 1.5em;
-        opacity: 0.8;
-        margin-top: 20px;
-    }
-
-    .footer {
-        position: absolute;
-        bottom: 20px;
-        font-size: 0.9em;
-        opacity: 0.5;
-    }
+.footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0.5;
+}
 </style>
 </head>
 
 <body>
 
 <div class="slide active">
-    <h1>Di sini kutabur rindu</h1>
-    <p>Kiranya cinta dapat kutuai</p>
+    <h1>Darimana saja adik, kenapa baru sekarang kau jingok abangmu ini</h1>
+    <p>Berat sekali kutahan rinduku</p>
 </div>
 
 <div class="slide">
@@ -78,34 +78,34 @@
 </div>
 
 <div class="footer">
-    ← → atau klik layar untuk berpindah slide
+    Klik di mana saja atau tekan ← →
 </div>
 
 <script>
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
+const slides = document.querySelectorAll(".slide");
+let current = 0;
 
-    function showSlide(index) {
-        slides.forEach(s => s.classList.remove('active'));
-        slides[index].classList.add('active');
-    }
+function showSlide(index) {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
+}
 
-    function nextSlide() {
-        current = (current + 1) % slides.length;
-        showSlide(current);
-    }
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
 
-    function prevSlide() {
-        current = (current - 1 + slides.length) % slides.length;
-        showSlide(current);
-    }
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
 
-    document.addEventListener('keydown', e => {
-        if (e.key === 'ArrowRight') nextSlide();
-        if (e.key === 'ArrowLeft') prevSlide();
-    });
+document.addEventListener("click", nextSlide);
 
-    document.addEventListener('click', nextSlide);
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
+});
 </script>
 
 </body>
